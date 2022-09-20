@@ -38,6 +38,7 @@ elseif(BOARD_REVISION MATCHES "(a02082)|(a22082)|(a020d3)|(9020e0)|(a03111)|(b03
 	set(DEFAULT_TO_ARMV8A ON)
 else()
 	message(WARNING "The board revision of this hardware is not known. Please add detection to this board in CMakeLists.txt. (proceeding to compile against a generic multicore CPU)")
+	set(DEFAULT_TO_ARMV8A ON)
 endif()
 
 option(SINGLE_CORE_BOARD "Target a Raspberry Pi with only one hardware core (Pi Zero)" ${DEFAULT_TO_SINGLE_CORE_BOARD})
