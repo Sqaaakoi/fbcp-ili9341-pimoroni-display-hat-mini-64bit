@@ -1,0 +1,7 @@
+cd build64
+cmake .. -DPIMORONI_DISPLAY_HAT_MINI=ON -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_BREAK_ASPECT_RATIO_WHEN_SCALING=ON -DBACKLIGHT_CONTROL=ON -DDISABLE_BATTERY_SAVER_FEATURES=ON -DSTATISTICS=0 -DAARCH64=YES
+make -j
+sudo systemctl stop fbcp
+sudo cp ./fbcp-ili9341 /sbin/fbcp-ili9341
+sudo systemctl stop fbcp
+cd ..

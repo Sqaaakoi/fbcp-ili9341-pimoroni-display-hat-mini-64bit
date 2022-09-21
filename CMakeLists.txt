@@ -119,6 +119,18 @@ if (BACKLIGHT_CONTROL)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBACKLIGHT_CONTROL")
 endif()
 
+option(BACKLIGHT_CONTROL_INACTIVITY "If true, the backlight will turn off when left inactive" OFF)
+if (BACKLIGHT_CONTROL_INACTIVITY)
+	message(STATUS "Enabling fbcp-ili9341 backlight inactivity")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBACKLIGHT_CONTROL_INACTIVITY")
+endif()
+
+option(DISABLE_BATTERY_SAVER_FEATURES "If true, battery saving features will be disabled for better performance" OFF)
+if (DISABLE_BATTERY_SAVER_FEATURES)
+	message(STATUS "Disabling battery saving features")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDISABLE_BATTERY_SAVER_FEATURES")
+endif()
+
 option(DISPLAY_CROPPED_INSTEAD_OF_SCALING "If ON, displays the cropped center part of the source image on the SPI display. If OFF, scales the source image to the SPI display" OFF)
 if (DISPLAY_CROPPED_INSTEAD_OF_SCALING)
 	message(STATUS "Cropping source image to view instead of scaling. This will produce crisp pixel perfect rendering, though edges of the display will be cut off if the HDMI and SPI display resolutions do not match. (pass -DDISPLAY_CROPPED_INSTEAD_OF_SCALING=OFF to scale instead of crop)")

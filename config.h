@@ -146,11 +146,14 @@
 
 // Detects when the activity on the screen is mostly idle, and goes to low power mode, in which new
 // frames will be polled first at 10fps, and ultimately at only 2fps.
+#if !defined(DISABLE_BATTERY_SAVER_FEATURES)
 #define SAVE_BATTERY_BY_SLEEPING_WHEN_IDLE
 
 // Builds a histogram of observed frame intervals and uses that to sync to a known update rate. This aims
 // to detect if an application uses a non-60Hz update rate, and synchronizes to that instead.
 #define SAVE_BATTERY_BY_PREDICTING_FRAME_ARRIVAL_TIMES
+
+#endif
 
 // If defined, rotates the display 180 degrees. This might not rotate the panel scan order though,
 // so adding this can cause up to one vsync worth of extra display latency. It is best to avoid this and
@@ -197,7 +200,7 @@
 // If defined, enables code to manage the backlight.
 // #define BACKLIGHT_CONTROL
 
-#if defined(BACKLIGHT_CONTROL)
+#if defined(BACKLIGHT_CONTROL_INACTIVITY)
 
 // If enabled, reads keyboard for input events to detect when the system has gone inactive and backlight
 // can be turned off
