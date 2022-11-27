@@ -1,3 +1,13 @@
+# About this fork
+
+This is mostly a fork combining 2 forks together, for use with the Raspberry Pi Zero 2 W and the Pimoroni Display Hat Mini
+  
+Upstream repositories
+- https://github.com/pimoroni/fbcp-ili9341/tree/feature/pimoroni-display-hat-mini
+- https://github.com/zxfishhack/fbcp-ili9341/tree/rpi2w-64bit-port
+
+Also contains a simple installation script; just run `./build-and-install.sh`
+
 # Introduction
 
 This repository implements a driver for certain SPI-based LCD displays for Raspberry Pi A, B, 2, 3, 4 and Zero.

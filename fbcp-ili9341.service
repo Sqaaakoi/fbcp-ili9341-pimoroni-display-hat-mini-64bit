@@ -1,0 +1,9 @@
+[Unit]
+Description=Framebuffer copy driver
+
+[Service]
+ExecStart=/usr/sbin/fbcp-ili9341
+
+[Install]
+WantedBy=basic.target
+Alias=fbcp.service
